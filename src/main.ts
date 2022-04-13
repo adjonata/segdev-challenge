@@ -1,4 +1,16 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from "vue";
+import App from "./App.vue";
+import { VueQueryPlugin } from "vue-query";
+import routes from "./routes";
 
-createApp(App).mount('#app')
+/**
+ * Configs
+ */
+import { vueQueryDefaultOptions } from "./config/vueQuery";
+
+const app = createApp(App);
+
+app.use(VueQueryPlugin, vueQueryDefaultOptions);
+app.use(routes);
+
+app.mount("#app");

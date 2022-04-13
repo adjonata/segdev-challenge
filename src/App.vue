@@ -1,12 +1,14 @@
 <script setup lang="ts">
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import HelloWorld from './components/HelloWorld.vue'
+
+import { useQuery } from "./hooks";
+import { VueQueryDevTools } from "vue-query/devtools";
 </script>
 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+  <router-view></router-view>
+  <VueQueryDevTools :initial-is-open="false" />
 </template>
 
 <style>
