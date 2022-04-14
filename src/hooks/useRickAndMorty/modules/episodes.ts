@@ -1,5 +1,6 @@
-import { useQuery } from "vue-query";
+import { useInfiniteQuery, useQuery } from "vue-query";
 import api from "../../../api";
+import { getUrlParam } from "../../../utils/url";
 
 export const MODULE_NAME = "episodes";
 
@@ -14,10 +15,16 @@ export function useEpisodes() {
 
   const listEpisodes = () => {
     return {
-      ...useQuery(
+      ...useInfiniteQuery(
         MODULE_NAME,
-        async () =>
-          await api.episodesModule.list().then((response) => response.results)
+        async ({ pageParam }) =>
+          await api.episodesModule.list({ page: pageParam }),
+        {
+          getNextPageParam: (lastPage, _pages) =>
+            lastPage?.info?.next
+              ? getUrlParam(lastPage.info.next, "page")
+              : undefined
+        }
       )
     };
   };

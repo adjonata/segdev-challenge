@@ -1,3 +1,3 @@
-import useQuery from "./query";
+import useRickAndMorty from "./useRickAndMorty";
 
-export { useQuery };
+export { useRickAndMorty };
