@@ -1,19 +1,23 @@
 <script setup lang="ts">
-import { useQuery } from "../hooks";
+import { useRickAndMorty } from "../hooks";
 
-const { listEpisodes } = useQuery();
-const { data: episodes, isFetched, isLoading } = listEpisodes();
+const { listEpisodes } = useRickAndMorty();
+const { data, isFetched, isLoading, hasNextPage, fetchNextPage } =
+  listEpisodes();
 </script>
 
 <template>
   <router-link :to="{ name: 'characters' }">Personagens</router-link>
   <div>Episódios</div>
   <p v-if="isLoading">Carregando...</p>
-  <ul v-if="isFetched">
-    <li v-for="episode in episodes" :key="episode.id">
-      {{ episode.name }}
-    </li>
-  </ul>
+  <div v-if="isFetched">
+    <ul v-for="(page, pageIndex) in data?.pages" :key="pageIndex">
+      <li v-for="episode in page.results">
+        {{ episode.name }}
+      </li>
+    </ul>
+  </div>
+  <span v-if="hasNextPage" @click="fetchNextPage()">Ver mais</span>
 </template>
 
 <style scoped></style>

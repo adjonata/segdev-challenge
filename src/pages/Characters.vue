@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useQuery } from "../hooks";
+import { useRickAndMorty } from "../hooks";
 
-const { listCharacters } = useQuery();
+const { listCharacters } = useRickAndMorty();
 const { data: characters, isFetched, isLoading } = listCharacters();
 </script>
 
