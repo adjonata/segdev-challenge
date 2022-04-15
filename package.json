@@ -9,8 +9,8 @@
   },
   "dependencies": {
     "axios": "^0.26.1",
+    "pinia": "^2.0.13",
     "vue": "^3.2.25",
-    "vue-query": "^1.22.3",
     "vue-router": "4"
   },
   "devDependencies": {

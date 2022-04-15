@@ -4,7 +4,7 @@ import Menu from "./Menu.vue";
 
 <template>
   <header class="header">
-    <img src="../../assets/logo.png" alt="Logo.png" />
+    <img src="../../assets/logo.png" alt="Logo.png" width="150px" />
     <Menu />
   </header>
 </template>

@@ -12,10 +12,10 @@ const episodesModule = {
   /**
    * Get all episodes
    */
-  async list(filters: EpisodesFilters = {}) {
+  async list(filters?: EpisodesFilters) {
     try {
       const response = await axios.get<ApiPagination<Episode[]>>(BASE_PATH, {
-        params: filters
+        params: filters || {}
       });
 
       return response.data;

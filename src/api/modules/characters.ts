@@ -12,10 +12,10 @@ const charactersModule = {
   /**
    * Get all characters
    */
-  async list(filters: CharactersFilters = {}) {
+  async list(filters?: CharactersFilters) {
     try {
       const response = await axios.get<ApiPagination<Character[]>>(BASE_PATH, {
-        params: filters
+        params: filters || {}
       });
 
       return response.data;
