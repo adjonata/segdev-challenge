@@ -1,26 +1,19 @@
-import { RouteRecordRaw, createRouter, createWebHashHistory } from "vue-router";
+import { RouteRecordRaw, createRouter, createWebHistory } from "vue-router";
 
 /**
  * Pages
  */
-import Episodes from "../pages/Episodes.vue";
-import Characters from "../pages/Characters.vue";
+import { episodesRoutes } from "./episodes.routes";
+import { charactersRoutes } from "./characters.routes";
 
-const routes: RouteRecordRaw[] = [
-  {
-    path: "/",
-    name: "episodes",
-    component: Episodes
-  },
-  {
-    path: "/characters",
-    name: "characters",
-    component: Characters
-  }
-];
+/**
+ * Enums
+ */
+
+const routes: RouteRecordRaw[] = [...episodesRoutes, ...charactersRoutes];
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes
 });
 
