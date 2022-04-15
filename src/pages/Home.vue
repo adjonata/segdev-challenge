@@ -9,11 +9,10 @@
       no cargo de Desenvolvedor Front-End Pleno.
     </p>
     <p>
-      O código da aplicação está disponível neste<a
-        href="https://github.com/adjonata/segdev-challenge"
-      >
-        repositório</a
-      >.
+      O código da aplicação está disponível neste
+      <a href="https://github.com/adjonata/segdev-challenge" target="_blank">
+        repositório
+      </a>
     </p>
 
     <h2>Tecnologias utilizadas:</h2>
@@ -41,6 +40,7 @@
   }
   ul {
     li {
+      font-size: 16px;
       &::before {
         content: "- ";
       }

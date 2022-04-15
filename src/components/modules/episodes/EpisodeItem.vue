@@ -16,13 +16,13 @@ const props = defineProps<Props>();
 
 <style scoped lang="scss">
 .episode-item {
-  background: #303030;
+  background: $grey-dark;
   padding: 10px;
   border-radius: 3px;
 
   span {
     font-size: 14px;
-    color: grey;
+    color: $grey;
   }
 }
 </style>

@@ -24,12 +24,18 @@ const props = defineProps<Props>();
 
 <style scoped lang="scss">
 .character-item {
-  background: #303030;
+  background: $grey-dark;
   padding: 10px;
   border-radius: 3px;
 
   img {
     width: 100%;
+  }
+
+  ul {
+    li {
+      color: $grey;
+    }
   }
 }
 </style>
