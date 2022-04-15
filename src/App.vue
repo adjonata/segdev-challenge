@@ -8,4 +8,13 @@ import Layout from "./components/layout/index.vue";
   </Layout>
 </template>
 
-<style></style>
+<style lang="scss">
+body {
+  background-color: $background;
+}
+#app {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+</style>

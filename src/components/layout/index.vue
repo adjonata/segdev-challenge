@@ -9,8 +9,11 @@ import Header from "./Header.vue";
   </main>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .content {
-  width: 100%;
+  width: $lg;
+  max-width: 100%;
+  margin: 20px 0 100px;
+  padding: 0 20px;
 }
 </style>

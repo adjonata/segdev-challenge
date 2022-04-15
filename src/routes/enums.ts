@@ -2,14 +2,11 @@ export enum DefaultRoutes {
   HOME = "home"
 }
 export enum EpisodeRoutes {
-  LIST = "episodes-list",
-  VIEW = "episodes-view"
+  LIST = "episodes-list"
 }
 export enum CharactersRoutes {
-  LIST = "characters-list",
-  VIEW = "characters-view"
+  LIST = "characters-list"
 }
 export enum LocationsRoutes {
-  LIST = "locations-list",
-  VIEW = "locations-view"
+  LIST = "locations-list"
 }

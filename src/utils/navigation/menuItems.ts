@@ -8,32 +8,24 @@ import {
 
 type MenuItem = {
   label: string;
-  to: RouteLocationRaw;
+  routeName: string;
 };
 
 export default [
   {
     label: "Início",
-    to: {
-      name: DefaultRoutes.HOME
-    }
+    routeName: DefaultRoutes.HOME
   },
   {
     label: "Episódios",
-    to: {
-      name: EpisodeRoutes.LIST
-    }
+    routeName: EpisodeRoutes.LIST
   },
   {
-    label: "Localizações",
-    to: {
-      name: LocationsRoutes.LIST
-    }
+    label: "Locais",
+    routeName: LocationsRoutes.LIST
   },
   {
     label: "Personagens",
-    to: {
-      name: CharactersRoutes.LIST
-    }
+    routeName: CharactersRoutes.LIST
   }
 ] as MenuItem[];

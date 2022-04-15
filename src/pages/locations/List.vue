@@ -1,44 +1,37 @@
 <script setup lang="ts">
 import { useLocationsStore } from "../../store";
+import Pagination from "../../components/common/Pagination.vue";
+import List from "../../components/common/List.vue";
+import LocationItem from "../../components/modules/locations/LocationItem.vue";
 
 const store = useLocationsStore();
 
 store.loadLocations();
-
-function changeNameFilter(event: Event) {
-  const value = (event.target as any).value as string;
-  store.changeNameFilter(value);
-}
 </script>
 
 <template>
-  <div class="head">
-    <h4>Página atual {{ store.filters.page }}</h4>
-    <p>Total de páginas {{ store.totalPages }}</p>
+  <Pagination
+    plural-label="Locais"
+    singular-label="Local"
+    :atual-page="store.filters.page"
+    :total-pages="store.totalPages"
+    :total-items="store.totalItems"
+    :search-value="store.filters.name || ''"
+    :is-enable-to-decrement="store.isEnableToDecrementPage"
+    :is-enable-to-increment="store.isEnableToIncrementPage"
+    :is-loading="store.isLoading"
+    @decrement-page="store.decrementPage()"
+    @increment-page="store.incrementPage()"
+    @change-search="store.changeNameFilter($event)"
+  />
 
-    <input type="text" :value="store.filters.name" @input="changeNameFilter" />
-    <button
-      :disabled="!store.isEnableToDecrementPage"
-      @click="store.decrementPage()"
-    >
-      -
-    </button>
-    <button
-      :disabled="!store.isEnableToIncrementPage"
-      @click="store.incrementPage()"
-    >
-      +
-    </button>
-  </div>
-
-  <p v-if="store.isLoading">Carregando...</p>
-  <p v-else-if="!store.atualPage.length">Nenhum resultado encontrado</p>
-
-  <ul>
-    <li v-for="episode in store.atualPage">
-      {{ episode.name }}
-    </li>
-  </ul>
+  <List
+    :is-loading="store.isLoading"
+    :is-empty="!store.atualPage.length"
+    :items-per-row="4"
+  >
+    <LocationItem v-for="location in store.atualPage" :location="location" />
+  </List>
 </template>
 
 <style scoped></style>

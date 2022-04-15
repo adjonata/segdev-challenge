@@ -5,6 +5,7 @@ import { Character, CharactersFilters } from "../types";
 const MODULE_NAME = "characters";
 
 export const useCharactersStore = defineStore(MODULE_NAME, {
+  persist: true,
   state: () => {
     return {
       /**
@@ -23,6 +24,10 @@ export const useCharactersStore = defineStore(MODULE_NAME, {
        * Total de páginas correspondentes a filtragem atual
        */
       totalPages: 0,
+      /**
+       * Total de itens
+       */
+      totalItems: 0,
       /**
        * Estado de carregamento
        */
@@ -44,6 +49,7 @@ export const useCharactersStore = defineStore(MODULE_NAME, {
           .then((data) => {
             this.pages[this.filters.page] = data.results;
             this.totalPages = data.info.pages;
+            this.totalItems = data.info.count;
           })
           .catch(() => this.resetFull());
       }
@@ -56,6 +62,7 @@ export const useCharactersStore = defineStore(MODULE_NAME, {
     resetFull() {
       this.filters.page = 1;
       this.totalPages = 0;
+      this.totalItems = 0;
       this.pages = [];
     },
     /**
