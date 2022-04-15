@@ -5,6 +5,7 @@ import { Character, CharactersFilters } from "../types";
 const MODULE_NAME = "characters";
 
 export const useCharactersStore = defineStore(MODULE_NAME, {
+  persist: true,
   state: () => {
     return {
       /**

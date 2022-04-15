@@ -5,6 +5,7 @@ import { Episode, EpisodesFilters } from "../types";
 const MODULE_NAME = "episodes";
 
 export const useEpisodesStore = defineStore(MODULE_NAME, {
+  persist: true,
   state: () => {
     return {
       /**

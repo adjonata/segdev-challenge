@@ -5,6 +5,7 @@ import { Location, LocationsFilters } from "../types";
 const MODULE_NAME = "locations";
 
 export const useLocationsStore = defineStore(MODULE_NAME, {
+  persist: true,
   state: () => {
     return {
       /**
