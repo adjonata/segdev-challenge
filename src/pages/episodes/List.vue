@@ -14,8 +14,11 @@ function changeNameFilter(event: Event) {
 
 <template>
   <Pagination
+    plural-label="Episódios"
+    singular-label="Episódio"
     :atual-page="store.filters.page"
     :total-pages="store.totalPages"
+    :total-items="store.totalItems"
     :search-value="store.filters.name || ''"
     :is-enable-to-decrement="store.isEnableToDecrementPage"
     :is-enable-to-increment="store.isEnableToIncrementPage"

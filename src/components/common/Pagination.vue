@@ -1,13 +1,24 @@
 <script setup lang="ts">
+import { computed } from "vue";
+
 interface Props {
+  singularLabel: string;
+  pluralLabel: string;
   atualPage: number;
   totalPages: number;
+  totalItems: number;
   searchValue: string;
   isEnableToDecrement: boolean;
   isEnableToIncrement: boolean;
   isLoading: boolean;
 }
 const props = defineProps<Props>();
+
+const countLabel = computed(() =>
+  props.totalItems > 1
+    ? `${props.totalItems} ${props.pluralLabel}`
+    : `${props.totalItems} ${props.singularLabel}`
+);
 
 interface Emits {
   (e: "change-search", value: string): void;
@@ -24,7 +35,7 @@ function changeSearch(event: Event) {
 
 <template>
   <div class="pagination">
-    <div>
+    <div class="pagination__wrapper">
       <input
         class="pagination__search"
         :value="searchValue"
@@ -32,7 +43,8 @@ function changeSearch(event: Event) {
         @input="changeSearch"
       />
     </div>
-    <div>
+    <div class="pagination__wrapper">
+      <p>{{ totalItems ? countLabel : "" }}</p>
       <button
         class="pagination__button"
         :disabled="!isEnableToDecrement || isLoading"
@@ -59,6 +71,16 @@ function changeSearch(event: Event) {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 30px;
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    
+    p {
+      font-size: 14px;
+      padding-right: 15px;
+    }
+  }
 
   &__search {
     padding: 10px 15px;

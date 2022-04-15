@@ -9,8 +9,11 @@ store.loadLocations();
 
 <template>
   <Pagination
-    :atualPage="store.filters.page"
-    :totalPages="store.totalPages"
+    plural-label="Locais"
+    singular-label="Local"
+    :atual-page="store.filters.page"
+    :total-pages="store.totalPages"
+    :total-items="store.totalItems"
     :search-value="store.filters.name || ''"
     :is-enable-to-decrement="store.isEnableToDecrementPage"
     :is-enable-to-increment="store.isEnableToIncrementPage"

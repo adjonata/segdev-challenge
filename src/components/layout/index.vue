@@ -14,5 +14,6 @@ import Header from "./Header.vue";
   width: $lg;
   max-width: 100%;
   margin: 20px 0;
+  padding: 0 20px;
 }
 </style>
