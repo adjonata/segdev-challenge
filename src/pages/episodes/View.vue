@@ -1,7 +1,11 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useRoute } from "vue-router";
+
+const { params } = useRoute();
+</script>
 
 <template>
-  <div></div>
+  <div>{{ params }}</div>
 </template>
 
 <style scoped></style>

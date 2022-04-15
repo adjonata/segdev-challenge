@@ -1,5 +1,7 @@
 <script setup lang="ts"></script>
 
-<template></template>
+<template>
+  <p>Listing all episodes...</p>
+</template>
 
 <style scoped></style>

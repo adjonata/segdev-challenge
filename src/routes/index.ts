@@ -1,16 +1,19 @@
 import { RouteRecordRaw, createRouter, createWebHistory } from "vue-router";
 
 /**
- * Pages
+ * Route Modules
  */
 import { episodesRoutes } from "./episodes.routes";
 import { charactersRoutes } from "./characters.routes";
+import { locationsRoutes } from "./locations.routes";
+import { defaultRoutes } from "./default.routes";
 
-/**
- * Enums
- */
-
-const routes: RouteRecordRaw[] = [...episodesRoutes, ...charactersRoutes];
+const routes: RouteRecordRaw[] = [
+  ...defaultRoutes,
+  ...episodesRoutes,
+  ...charactersRoutes,
+  ...locationsRoutes
+];
 
 const router = createRouter({
   history: createWebHistory(),
