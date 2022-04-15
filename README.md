@@ -34,5 +34,5 @@ A aplicação se consiste na busca de dados paginados da API [Rick and Morty](ht
 - Para melhorar o fluxo de dados e evitar carregamentos repetidos, criei um state utilizando pinia, que contém a regra de páginação e filtros. Caso um página já tenha sido carregada, ela é retornada do estado, caso contrário realizar uma nova requisição e guarda ela também.<br>
   Junto a esse fluxo adicionei ao projeto a biblioteca PiniaPersistedState que armazena uma cópia do estado no localStorage, sendo assim mesmo que você atualize a página, os dados já carregados permanecerão.<br>
 - Na parte visual do sistema, criei um layout padrão que contém um Header e Menu, que trabalha com a navegação entre as rotas.
-- Para comunicação criei um módulo chamado API que contém todas as rotas da RickAndMortyAPI, ela é completamente tipada, sendo assim os dados são facilmente manipulados. 
-- O projeto contém uma estrutura simples, bem repatorada, de fácil manutenção e adição de novas features. Pretendo melhorar mais ainda ele no futuro para mantér no meu portfólio.
+- Para comunicação criei um módulo chamado API que contém todas as rotas da RickAndMortyAPI, ela é completamente tipada, sendo assim os dados são facilmente manipulados.
+- O projeto contém uma estrutura simples, bem refatorada, de fácil manutenção e adição de novas features.
