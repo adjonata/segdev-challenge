@@ -15,7 +15,7 @@ export interface ApiPagination<T> {
  * Filters
  */
 export interface DefaultFilter {
-  page?: number;
+  page: number;
 }
 
 export interface CharactersFilters extends DefaultFilter {
@@ -33,6 +33,6 @@ export interface LocationsFilters extends DefaultFilter {
 }
 
 export interface EpisodesFilters extends DefaultFilter {
-  name?: string;
+  name: string;
   episode?: string;
 }
