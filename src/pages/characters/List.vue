@@ -1,35 +1,24 @@
 <script setup lang="ts">
 import { useCharactersStore } from "../../store";
+import Pagination from "../../components/common/Pagination.vue";
 
 const store = useCharactersStore();
 
 store.loadCharacters();
-
-function changeNameFilter(event: Event) {
-  const value = (event.target as any).value as string;
-  store.changeNameFilter(value);
-}
 </script>
 
 <template>
-  <div class="head">
-    <h4>Página atual {{ store.filters.page }}</h4>
-    <p>Total de páginas {{ store.totalPages }}</p>
-
-    <input type="text" :value="store.filters.name" @input="changeNameFilter" />
-    <button
-      :disabled="!store.isEnableToDecrementPage"
-      @click="store.decrementPage()"
-    >
-      -
-    </button>
-    <button
-      :disabled="!store.isEnableToIncrementPage"
-      @click="store.incrementPage()"
-    >
-      +
-    </button>
-  </div>
+  <Pagination
+    :atual-page="store.filters.page"
+    :total-pages="store.totalPages"
+    :search-value="store.filters.name || ''"
+    :is-enable-to-decrement="store.isEnableToDecrementPage"
+    :is-enable-to-increment="store.isEnableToIncrementPage"
+    :is-loading="store.isLoading"
+    @decrement-page="store.decrementPage()"
+    @increment-page="store.incrementPage()"
+    @change-search="store.changeNameFilter($event)"
+  />
 
   <p v-if="store.isLoading">Carregando...</p>
   <p v-else-if="!store.atualPage.length">Nenhum resultado encontrado</p>

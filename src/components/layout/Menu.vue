@@ -34,7 +34,7 @@ const route = useRoute();
     text-transform: uppercase;
 
     &.active {
-      border-bottom-color: $pink;
+      border-bottom-color: $green;
     }
   }
 }
