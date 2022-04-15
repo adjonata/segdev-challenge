@@ -4,9 +4,25 @@ import Menu from "./Menu.vue";
 
 <template>
   <header class="header">
-    <img src="../../assets/logo.png" alt="Logo.png" width="150px" />
+    <img
+      class="header__logo"
+      src="../../assets/images/logo.png"
+      alt="Logo.png"
+    />
     <Menu />
   </header>
 </template>
 
-<style scoped></style>
+<style scoped lang="scss">
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  &__logo {
+    width: 320px;
+    max-width: 70%;
+  }
+}
+</style>
