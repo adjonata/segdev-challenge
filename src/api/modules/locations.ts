@@ -12,10 +12,10 @@ const locationsModule = {
   /**
    * Get all locations
    */
-  async list(filters: LocationsFilters = {}) {
+  async list(filters?: LocationsFilters) {
     try {
       const response = await axios.get<ApiPagination<Location[]>>(BASE_PATH, {
-        params: filters
+        params: filters || {}
       });
 
       return response.data;
