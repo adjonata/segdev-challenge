@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { useCharactersStore } from "../../store";
 import Pagination from "../../components/common/Pagination.vue";
+import List from "../../components/common/List.vue";
+import CharacterItem from "../../components/modules/characters/CharacterItem.vue";
 
 const store = useCharactersStore();
 
@@ -23,14 +25,16 @@ store.loadCharacters();
     @change-search="store.changeNameFilter($event)"
   />
 
-  <p v-if="store.isLoading">Carregando...</p>
-  <p v-else-if="!store.atualPage.length">Nenhum resultado encontrado</p>
-
-  <ul>
-    <li v-for="character in store.atualPage">
-      {{ character.name }}
-    </li>
-  </ul>
+  <List
+    :is-loading="store.isLoading"
+    :is-empty="!store.atualPage.length"
+    :items-per-row="3"
+  >
+    <CharacterItem
+      v-for="character in store.atualPage"
+      :character="character"
+    />
+  </List>
 </template>
 
 <style scoped></style>

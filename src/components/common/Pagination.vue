@@ -72,10 +72,20 @@ function changeSearch(event: Event) {
   justify-content: space-between;
   margin-bottom: 30px;
 
+  @media (max-width: $md) {
+    flex-direction: column;
+    justify-content: center;
+  }
+
   &__wrapper {
     display: flex;
     align-items: center;
-    
+
+    @media (max-width: $md) {
+      width: 100%;
+      justify-content: space-between;
+    }
+
     p {
       font-size: 14px;
       padding-right: 15px;
@@ -87,6 +97,10 @@ function changeSearch(event: Event) {
     border-radius: 3px;
     background: none;
     border: solid 2px $green;
+    @media (max-width: $md) {
+      width: 100%;
+      margin-bottom: 20px;
+    }
   }
 
   &__button {

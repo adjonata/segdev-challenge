@@ -1,15 +1,12 @@
 <script setup lang="ts">
 import { useEpisodesStore } from "../../store";
 import Pagination from "../../components/common/Pagination.vue";
+import List from "../../components/common/List.vue";
+import EpisodeItem from "../../components/modules/episodes/EpisodeItem.vue";
 
 const store = useEpisodesStore();
 
 store.loadEpisodes();
-
-function changeNameFilter(event: Event) {
-  const value = (event.target as any).value as string;
-  store.changeNameFilter(value);
-}
 </script>
 
 <template>
@@ -28,14 +25,13 @@ function changeNameFilter(event: Event) {
     @change-search="store.changeNameFilter($event)"
   />
 
-  <p v-if="store.isLoading">Carregando...</p>
-  <p v-else-if="!store.atualPage.length">Nenhum resultado encontrado</p>
-
-  <ul>
-    <li v-for="episode in store.atualPage">
-      {{ episode.name }}
-    </li>
-  </ul>
+  <List
+    :is-loading="store.isLoading"
+    :is-empty="!store.atualPage.length"
+    :items-per-row="4"
+  >
+    <EpisodeItem v-for="episode in store.atualPage" :episode="episode" />
+  </List>
 </template>
 
 <style scoped></style>

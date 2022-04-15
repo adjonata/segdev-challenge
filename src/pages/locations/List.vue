@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { useLocationsStore } from "../../store";
 import Pagination from "../../components/common/Pagination.vue";
+import List from "../../components/common/List.vue";
+import LocationItem from "../../components/modules/locations/LocationItem.vue";
 
 const store = useLocationsStore();
 
@@ -23,14 +25,13 @@ store.loadLocations();
     @change-search="store.changeNameFilter($event)"
   />
 
-  <p v-if="store.isLoading">Carregando...</p>
-  <p v-else-if="!store.atualPage.length">Nenhum resultado encontrado</p>
-
-  <ul>
-    <li v-for="episode in store.atualPage">
-      {{ episode.name }}
-    </li>
-  </ul>
+  <List
+    :is-loading="store.isLoading"
+    :is-empty="!store.atualPage.length"
+    :items-per-row="4"
+  >
+    <LocationItem v-for="location in store.atualPage" :location="location" />
+  </List>
 </template>
 
 <style scoped></style>
