@@ -1,0 +1,29 @@
+@import "variables";
+
+* {
+  box-sizing: border-box;
+  font-family: "Nunito";
+  font-weight: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  color: $white;
+}
+
+ul {
+  list-style: none;
+  li {
+    font-size: 14px;
+    color: $grey;
+  }
+}
+a {
+  text-decoration: none;
+  color: $white;
+  font-weight: bold;
+}
+
+input {
+  font-weight: bold;
+}
